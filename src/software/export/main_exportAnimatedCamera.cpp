@@ -33,16 +33,6 @@ namespace po = boost::program_options;
 namespace fs = boost::filesystem;
 
 
-void writeImageNew(const std::string& path, image::Image<image::RGBfColor>& imageIn,
-                   image::EImageColorSpace imageColorSpace, const oiio::ParamValueList& metadata, const oiio::ROI& roi)
-{
-
-    oiio::ImageSpec imageSpec(imageIn.Width(), imageIn.Height(), 3, oiio::TypeDesc::FLOAT);
-    imageSpec.extra_attribs = metadata; // add custom metadata
-    imageSpec.set_roi_full(roi);
-    const oiio::ImageBuf imgBuf = oiio::ImageBuf(imageSpec, imageIn.data()); // original image buffer
-    imgBuf.write(path);
-}
 
 oiio::ROI computeRoi(const camera::IntrinsicBase* intrinsic)
                
