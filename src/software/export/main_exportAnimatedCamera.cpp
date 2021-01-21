@@ -286,19 +286,16 @@ int aliceVision_main(int argc, char** argv)
             {
                 roi = roiForIntrinsic[key];
             }
-            //writeImageNew(dstImage, image_ud, image::EImageColorSpace::NO_CONVERSION, metadata, roi);
             writeImage(dstImage, image_ud, image::EImageColorSpace::NO_CONVERSION, metadata,roi);
         }
         else
         {
-            //image::writeImage(dstImage, image_ud, image::EImageColorSpace::NO_CONVERSION);
-            image::writeImage(dstImage, image_ud, image::EImageColorSpace::NO_CONVERSION, metadata); // To be checked: use of metadata
+            image::writeImage(dstImage, image_ud, image::EImageColorSpace::NO_CONVERSION, metadata); 
         }   
       }
       else // (no distortion)
       {
         // copy the image since there is no distortion
-        //image::writeImage(dstImage, image, image::EImageColorSpace::NO_CONVERSION);
         image::writeImage(dstImage, image, image::EImageColorSpace::NO_CONVERSION, metadata);
       }
     }
